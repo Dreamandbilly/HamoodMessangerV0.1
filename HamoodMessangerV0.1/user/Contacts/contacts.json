@@ -1,0 +1,17 @@
+[
+  {
+    "DisplayName": "Clovis",
+    "Port": 5000,
+    "IP": "127.0.0.1"
+  },
+  {
+    "DisplayName": "Richard",
+    "Port": 5002,
+    "IP": "127.0.0.1"
+  },
+  {
+    "DisplayName": "hamood",
+    "Port": 54632,
+    "IP": "192.168.12.3"
+  }
+]
