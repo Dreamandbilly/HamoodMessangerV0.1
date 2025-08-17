@@ -1,12 +1,7 @@
 [
   {
-    "DisplayName": "humzah",
-    "Port": 4502,
-    "IP": "192.168.1.23"
-  },
-  {
-    "DisplayName": "rat",
-    "Port": 245,
-    "IP": "192.168.1.12"
+    "DisplayName": "LabRat1",
+    "Port": 6942,
+    "IP": "192.168.1.106"
   }
 ]

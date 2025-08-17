@@ -43,6 +43,7 @@
             Manage_PF = new PictureBox();
             MyPort = new Label();
             MyName = new Label();
+            IPTextBox = new Label();
             ((System.ComponentModel.ISupportInitialize)SendBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddUser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Manage_PF).BeginInit();
@@ -146,12 +147,23 @@
             MyName.TabIndex = 9;
             MyName.Text = "Name : ";
             // 
+            // IPTextBox
+            // 
+            IPTextBox.AutoSize = true;
+            IPTextBox.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            IPTextBox.Location = new Point(790, 55);
+            IPTextBox.Name = "IPTextBox";
+            IPTextBox.Size = new Size(40, 25);
+            IPTextBox.TabIndex = 10;
+            IPTextBox.Text = "IP: ";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Cyan;
             ClientSize = new Size(935, 478);
+            Controls.Add(IPTextBox);
             Controls.Add(MyName);
             Controls.Add(MyPort);
             Controls.Add(Manage_PF);
@@ -185,5 +197,6 @@
         private PictureBox Manage_PF;
         private Label MyPort;
         private Label MyName;
+        private Label IPTextBox;
     }
 }

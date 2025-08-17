@@ -183,6 +183,7 @@ namespace HamoodMessangerV0._1
                     UserProfile = profiles[0];  // set the current profile
                     MyName.Text = UserProfile.Name; 
                     MyPort.Text = UserProfile.Port.ToString();
+                    IPTextBox.Text = UserProfile.IP; // display Ip
                 }
 
             }
