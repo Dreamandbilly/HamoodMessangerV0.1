@@ -11,8 +11,10 @@ namespace HamoodMessangerV0._1
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
+
 
             InitializeComponent();
             string MYIP = GetMYIP();
@@ -20,10 +22,52 @@ namespace HamoodMessangerV0._1
             LoadContacts();
             LoadProfile();
             Chats.SelectedIndexChanged += SelectedChats;
+            tcp.OnMessageReceived += (senderIp, msg) =>
+            {
+                // We’re on a background thread; marshal to UI thread
+                this.BeginInvoke((Action)(() => HandleIncomingMessage(senderIp, msg)));
+
+            };
+            if (UserProfile != null)
+            {
+                tcp.StartServer(UserProfile.Port);
+            }
 
 
-
+            
         }
+        private void HandleIncomingMessage(string senderIp, string message)  //////////// Makes no sense
+        {
+            // Find the contact by IP (port from remote will be ephemeral, so match by IP)
+            var contact = contacts.FirstOrDefault(c => c.IP == senderIp);
+
+            if (contact == null)
+            {
+                // Optional: show a hint if the sender isn’t in contacts
+                MainMessageBox.AppendText($"[{senderIp}] {message}" + Environment.NewLine);
+                return;
+            }
+
+            // Append to that contact's chat file
+            string chatFileName = $"{contact.DisplayName}_{contact.Port}.txt";
+            string chatFilePath = Path.Combine(ChatsPath, chatFileName);
+            if (!File.Exists(chatFilePath)) File.WriteAllText(chatFilePath, "");
+
+            string formatted = $"{contact.DisplayName}: {message}";
+            File.AppendAllText(chatFilePath, formatted + Environment.NewLine);
+
+            // If this chat is currently selected, show it live
+            if (selectedChatIndex >= 0 && contacts[selectedChatIndex].IP == contact.IP)
+            {
+                MainMessageBox.AppendText(formatted + Environment.NewLine);
+                MainMessageBox.SelectionStart = MainMessageBox.Text.Length;
+                MainMessageBox.ScrollToCaret();
+            }
+        }
+
+        private TCPManager tcp = new TCPManager(); ///                                             TCP makes no sense
+
+
         private string MyProfilePath = "C:\\Users\\hamid\\source\\repos\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\MYProfile\\MyUserInfo.json";
         private string ContactPath = "C:\\Users\\hamid\\source\\repos\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\Contacts\\contacts.json";
         private string ChatsPath = "C:\\Users\\hamid\\source\\repos\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\Chats\\chat";
@@ -112,7 +156,7 @@ namespace HamoodMessangerV0._1
 
 
         private List<Contact> contacts = new();
-
+        
         private void LoadContacts()
         {
 
@@ -187,7 +231,7 @@ namespace HamoodMessangerV0._1
 
         }
 
-        private void SendBtn_Click(object sender, EventArgs e)
+        private async void SendBtn_Click(object sender, EventArgs e)
         {
             if (selectedChatIndex == -1)
             {
@@ -206,6 +250,8 @@ namespace HamoodMessangerV0._1
                 MainMessageBox.AppendText("You: " + message + Environment.NewLine); // and displaying in the lIVE box 
 
                 SendMessage.Clear();
+
+                await tcp.SendMessageAsync(selectedContact.IP, selectedContact.Port, message); // actually sending the message accross the network
             }
         }
 
