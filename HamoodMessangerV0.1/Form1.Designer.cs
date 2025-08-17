@@ -40,8 +40,12 @@
             SendMessage = new TextBox();
             SendBtn = new PictureBox();
             AddUser = new PictureBox();
+            Manage_PF = new PictureBox();
+            MyPort = new Label();
+            MyName = new Label();
             ((System.ComponentModel.ISupportInitialize)SendBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddUser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Manage_PF).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -112,12 +116,45 @@
             AddUser.TabStop = false;
             AddUser.Click += AddUser_Click;
             // 
+            // Manage_PF
+            // 
+            Manage_PF.Image = Properties.Resources.manage_pfp;
+            Manage_PF.Location = new Point(12, 0);
+            Manage_PF.Name = "Manage_PF";
+            Manage_PF.Size = new Size(24, 26);
+            Manage_PF.TabIndex = 7;
+            Manage_PF.TabStop = false;
+            Manage_PF.Click += Manage_PF_Click;
+            // 
+            // MyPort
+            // 
+            MyPort.AutoSize = true;
+            MyPort.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MyPort.Location = new Point(790, 5);
+            MyPort.Name = "MyPort";
+            MyPort.Size = new Size(96, 25);
+            MyPort.TabIndex = 8;
+            MyPort.Text = "MYPort : ";
+            // 
+            // MyName
+            // 
+            MyName.AutoSize = true;
+            MyName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MyName.Location = new Point(790, 30);
+            MyName.Name = "MyName";
+            MyName.Size = new Size(79, 25);
+            MyName.TabIndex = 9;
+            MyName.Text = "Name : ";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Cyan;
             ClientSize = new Size(935, 478);
+            Controls.Add(MyName);
+            Controls.Add(MyPort);
+            Controls.Add(Manage_PF);
             Controls.Add(AddUser);
             Controls.Add(SendBtn);
             Controls.Add(SendMessage);
@@ -131,6 +168,7 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)SendBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddUser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Manage_PF).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -144,5 +182,8 @@
         private PictureBox SendBtn;
         private ListBox Chats;
         private PictureBox AddUser;
+        private PictureBox Manage_PF;
+        private Label MyPort;
+        private Label MyName;
     }
 }

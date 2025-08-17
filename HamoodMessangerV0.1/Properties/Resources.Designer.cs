@@ -63,6 +63,16 @@ namespace HamoodMessangerV0._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap manage_pfp {
+            get {
+                object obj = ResourceManager.GetObject("manage_pfp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Save_icon_floppy_disk_transparent_with_circle {
             get {
                 object obj = ResourceManager.GetObject("Save-icon-floppy-disk-transparent-with-circle", resourceCulture);

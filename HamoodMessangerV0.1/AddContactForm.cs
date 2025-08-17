@@ -26,7 +26,7 @@ namespace HamoodMessangerV0._1
             }
             
 
-            // Try to parse port
+            
             if (!int.TryParse(portText, out int port) || port <= 0 || port > 65535)
             {
                 MessageBox.Show("Please enter a valid port number (1-65535).", "Invalid Port", MessageBoxButtons.OK, MessageBoxIcon.Warning);
