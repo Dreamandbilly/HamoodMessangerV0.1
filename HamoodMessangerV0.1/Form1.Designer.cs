@@ -67,6 +67,10 @@
             MainMessageBox.Size = new Size(462, 334);
             MainMessageBox.TabIndex = 1;
             MainMessageBox.Text = "";
+            MainMessageBox.BackColor = Color.Magenta;
+            
+
+
             // 
             // Chats
             // 

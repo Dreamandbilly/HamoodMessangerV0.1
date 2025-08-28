@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.Design;
 using System.Drawing.Text;
 using System.IO;
 using System.Net;
@@ -11,7 +12,7 @@ namespace HamoodMessangerV0._1
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
 
@@ -20,7 +21,12 @@ namespace HamoodMessangerV0._1
             string MYIP = GetMYIP();
             MessageBox.Show($"Your IP is: {MYIP}", "IP Address", MessageBoxButtons.OK, MessageBoxIcon.Information); // testing my ip address
             LoadContacts();
+            this.KeyPreview = true;
+            this.KeyDown += SendMessage_KeyDown;
             LoadProfile();
+
+
+
             Chats.SelectedIndexChanged += SelectedChats;
             tcp.OnMessageReceived += (senderIp, msg) =>
             {
@@ -34,8 +40,10 @@ namespace HamoodMessangerV0._1
             }
 
 
-            
+
         }
+
+
         private void HandleIncomingMessage(string senderIp, string message)  //////////// Makes no sense
         {
             // Find the contact by IP (port from remote will be ephemeral, so match by IP)
@@ -83,7 +91,7 @@ namespace HamoodMessangerV0._1
             File.WriteAllText(ContactPath, JsonSerializer.Serialize(contacts, new JsonSerializerOptions { WriteIndented = true }));
             Chats.Items.Add($"{newContact.DisplayName} ({newContact.IP}:{newContact.Port})");
         }
-        
+
 
         public static string GetMYIP()
         {
@@ -102,7 +110,7 @@ namespace HamoodMessangerV0._1
 
         private void SaveUserProfile(MyPF newProfile)
         {
-            Profile.Clear(); 
+            Profile.Clear();
             Profile.Add(newProfile);
 
             // Save to JSON file for the profile
@@ -124,9 +132,9 @@ namespace HamoodMessangerV0._1
 
         }
 
-        public class  MyPF 
+        public class MyPF
         {
-            public string Name { get; set; }   
+            public string Name { get; set; }
             public int Port { get; set; }
             public string IP { get; set; }
             public MyPF(string name, int port)
@@ -156,7 +164,7 @@ namespace HamoodMessangerV0._1
 
 
         private List<Contact> contacts = new();
-        
+
         private void LoadContacts()
         {
 
@@ -181,7 +189,7 @@ namespace HamoodMessangerV0._1
                 if (profiles.Count > 0)
                 {
                     UserProfile = profiles[0];  // set the current profile
-                    MyName.Text = UserProfile.Name; 
+                    MyName.Text = UserProfile.Name;
                     MyPort.Text = UserProfile.Port.ToString();
                     IPTextBox.Text = UserProfile.IP; // display Ip
                 }
@@ -236,7 +244,7 @@ namespace HamoodMessangerV0._1
         {
             if (selectedChatIndex == -1)
             {
-                MessageBox.Show("Please select a chat first.", "No Chat Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                MessageBox.Show("Please select a chat first.", "No Chat Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -253,6 +261,14 @@ namespace HamoodMessangerV0._1
                 SendMessage.Clear();
 
                 await tcp.SendMessageAsync(selectedContact.IP, selectedContact.Port, message); // actually sending the message accross the network
+            }
+        }
+        private void SendMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SendBtn_Click(sender, e);
             }
         }
 
@@ -277,6 +293,7 @@ namespace HamoodMessangerV0._1
             }
         }
 
+        
     }
 }
 
