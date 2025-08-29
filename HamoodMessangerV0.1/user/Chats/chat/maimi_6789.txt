@@ -7,3 +7,9 @@ You: hi ]#
 You: hi
 You: whats up
 You: hi
+You sent an image: image.png
+You: gd
+You: gd
+You: f
+You: dfg
+You: dfg

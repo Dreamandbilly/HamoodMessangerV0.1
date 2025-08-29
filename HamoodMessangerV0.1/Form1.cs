@@ -73,13 +73,13 @@ namespace HamoodMessangerV0._1
             }
         }
 
-        private TCPManager tcp = new TCPManager(); ///                                             TCP makes no sense
+        public TCPManager tcp = new TCPManager(); ///                                             TCP makes no sense
 
 
-        private string MyProfilePath = "C:\\Users\\hamid\\source\\repos\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\MYProfile\\MyUserInfo.json";
-        private string ContactPath = "C:\\Users\\hamid\\source\\repos\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\Contacts\\contacts.json";
-        private string ChatsPath = "C:\\Users\\hamid\\source\\repos\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\Chats\\chat";
-        private int selectedChatIndex = -1;
+        private string MyProfilePath = "C:\\Users\\hamid\\source\\repos\\Dreamandbilly\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\MYProfile\\MyUserInfo.json";
+        private string ContactPath = "C:\\Users\\hamid\\source\\repos\\Dreamandbilly\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\Contacts\\contacts.json";
+        public string ChatsPath = "C:\\Users\\hamid\\source\\repos\\Dreamandbilly\\HamoodMessangerV0.1\\HamoodMessangerV0.1\\user\\Chats\\chat";
+        public int selectedChatIndex = -1;
         private MyPF UserProfile;
 
 
@@ -163,7 +163,7 @@ namespace HamoodMessangerV0._1
         private List<MyPF> Profile = new();
 
 
-        private List<Contact> contacts = new();
+        public List<Contact> contacts = new();
 
         private void LoadContacts()
         {
@@ -293,7 +293,11 @@ namespace HamoodMessangerV0._1
             }
         }
 
-        
+        private void PlusButton_Click(object sender, EventArgs e)
+        {
+           Form option = new OptionForm(this);
+              option.ShowDialog();
+        }
     }
 }
 

@@ -121,7 +121,7 @@
   <data name="SendBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAB90RVh0QXV0aG9yAFZlY3RvclN0b2NrLmNvbS80MjMyMTk3N+8dl2oAAA/TSURB
+        DAAACwwBP0AiyAAAAB90RVh0QXV0aG9yAFZlY3RvclN0b2NrLmNvbS80MjMyMTk3N+8dl2oAAA/TSURB
         VFhHTVh5dFRVmq+/Z3o845l2RGQRkISkktS+L6/2LbWmkkCCiqCtto6iTiPaLggHxFa0hW57oBFQaEEE
         QxRZRAIo4kLCZsieSqWSSqoqqUolVZX36q3fnPsq9Mw733nnvXq37u9+y/3u9/sEQDFAM8BSADRwACxw
         d4QFjgOKhiIJOAlFGhgSgOCF5gAYAP5PwHAckDSQJFAkmohjAM2EhnDsnYEcmp3lgOGF5QTAMMAywDEc
@@ -195,7 +195,7 @@
   <data name="AddUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAltJREFUSEt9lEso9VEUxf8+r4FcohgRIkkSxR1QJpLHJYYMZGhExpgYMVTKQCZm
+        vAAADrwBlbxySQAAAltJREFUSEt9lEso9VEUxf8+r4FcohgRIkkSxR1QJpLHJYYMZGhExpgYMVTKQCZm
         EoZCyaMMZOQVkceElEchb35f5263e519rlVrcPbZe63z2Od4/IWZGWhrg7w8qKyEwUG4uLCz/oRnB4J4
         foa6OvA8zaQkWFiwK6LCbdDXp4UjmZoK19d2lRPa4PYWkpO1qM2REbvSCW2wsqLFXGxosCud0AbT01rM
         xepqu9IJbTA/r8VcrKmxK53QBjs7WszFzk670glt8PYG2dla0ObUlF3phDYw6O3VgpE0XXZzY1c54TY4
@@ -206,6 +206,16 @@
         iqza3EFGhhxlXJzk+P14wa3aYtG4uwvb2zq+uSnmkV1kODGBx9YWZGXpIhfNgzJob/8db2yEri7ZVShW
         WBh8C9JF9/fS++bsSkqCl0N8vDYwnJ2VRxgI6LkQTUOcnASl9UMzMI/t6gpOT+HwUL6EgwM4OoLz83De
         3Jxcenq63EdFBYyPywJ+8B8wUcJfGMyJBQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="PlusButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
+        cwAAEnMBjCK5BwAAANBJREFUSEvtlkEKwjAQRXtEV7rq0vt4DxcFqejKhW7EK2gpFDxCBEnplD8SlEJC
+        GTSjmAcfPmmnn0kTkoyUyIYDsUjB0fit4K4jOjQtC16CKPh4bWmyNCx4CaLg8mxpWhgWvARR8OZiaVYY
+        FryEFDyKXf38x/ASvMHYJVixWDzoymlbWVqc7pSvbix4jL2+gxrUhnaaN3jfWN4u6MpNqxMC5+uH4IfP
+        UYNafMPH9wWrTXWIjy6uEOjKTSu8hBQ8CrVDQu1YVLsIvIMUHI3/C+4BQbus+NIbMcsAAAAASUVORK5C
+        YII=
 </value>
   </data>
 </root>
